@@ -49,7 +49,7 @@ function TaskCard({ task, deleteTask, updateTask }: Props) {
      <Card
        ref={setNodeRef}
        style={style}
-        className="flex justify-between items-center p-5 bg-violet-200 h-[6rem] opacity-50 ring-2 ring-ring" />
+        className="flex justify-between items-center p-5 bg-card/50 h-[6rem] opacity-50 ring-2 ring-ring" />
 
    );
   }
@@ -61,9 +61,10 @@ function TaskCard({ task, deleteTask, updateTask }: Props) {
         style={style}
         {...attributes}
         {...listeners}
-        className="flex justify-between items-center p-5 bg-violet-200 h-[6rem] cursor-grab">
+        className="flex justify-between items-center p-5 bg-primary text-white h-[6rem] cursor-grab"
+      >
         <Textarea
-          className="w-full bg-transparent outline-none focus:outline-none focus:ring-0"
+          className="w-full bg-transparent"
           value={task.content}
           autoFocus
           placeholder="Task content"
@@ -80,7 +81,7 @@ function TaskCard({ task, deleteTask, updateTask }: Props) {
 
   return (
     <Card
-      className="flex justify-between items-center p-5 bg-violet-200 h-[6rem] cursor-grab task"
+      className="flex justify-between items-center p-5 bg-card-foreground/85 text-white h-[6rem] cursor-grab task"
       onMouseEnter={() => setMouseIsOver(true)}
       onMouseLeave={() => setMouseIsOver(false)}
       onClick={toggleEditMode}

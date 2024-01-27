@@ -27,11 +27,7 @@ function KanbanBoard() {
   const columnsId = useMemo(() => columns.map((col) => col.id), [columns]);
   const [activeColumn, setActiveColumn] = useState<Column | null>(null);
   const [activeTask, setActiveTask] = useState<Task | null>(null);
-  const [tasks, setTasks] = useState<Task[]>([
-    {id: 1, columnId: 1, content: "Do stuff"},
-    {id: 2, columnId: 4, content: "Do things"},
-    {id: 3, columnId: 1, content: "Do more stuff"},
-  ]);
+  const [tasks, setTasks] = useState<Task[]>([]);
 
   const generateId = () => {
     return Math.floor(Math.random() * 10001);
@@ -170,14 +166,13 @@ function KanbanBoard() {
   return (
     <div
       className="
-      m-auto
       flex
       min-h-screen
       w-full
-      items-center
+      items-stretch
       overflow-x-auto
       overflow-y-hidden
-      px-[40px]
+      pl-4
       "
     >
       <DndContext
@@ -186,8 +181,21 @@ function KanbanBoard() {
         onDragEnd={onDragEnd}
         onDragOver={onDragOver}
       >
-        <div className="m-auto flex gap-4">
-          <div className="flex gap-4">
+        <div className="flex gap-4 min-w-full max-w-full overflow-x-scroll ">
+          <Button
+            onClick={createNewColumn}
+            className="
+                  ring-emerald-400 hover:ring-2
+                  flex
+                  gap-2
+                  absolute
+                  top-3
+                  left-6
+                  "
+          >
+            <PlusIcon /> Add Column
+          </Button>
+          <div className="flex gap-4 items-center">
             <SortableContext items={columnsId}>
               {columns.map((col) => (
                 <ColumnContainer
@@ -203,17 +211,6 @@ function KanbanBoard() {
               ))}
             </SortableContext>
           </div>
-          <Button
-            onClick={createNewColumn}
-            variant="outline"
-            className="
-                  ring-emerald-400 hover:ring-2
-                  flex
-                  gap-2
-                  "
-          >
-            <PlusIcon /> Add Column
-          </Button>
         </div>
 
         {createPortal(

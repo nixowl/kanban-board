@@ -32,8 +32,8 @@ function ColumnContainer(props: Props) {
   const [editMode, setEditMode] = useState(false);
 
   const tasksIds = useMemo(() => {
-    return tasks.map(task => task.id)
-  }, [tasks])
+    return tasks.map((task) => task.id);
+  }, [tasks]);
 
   const {
     setNodeRef,
@@ -62,7 +62,7 @@ function ColumnContainer(props: Props) {
         ref={setNodeRef}
         style={style}
         className="
-      bg-slate-100
+      bg-card-foreground
       w-[20rem]
       h-[40rem]
       max-h-[40rem]
@@ -80,7 +80,7 @@ function ColumnContainer(props: Props) {
       ref={setNodeRef}
       style={style}
       className="
-      bg-slate-100
+      bg-foreground/85
       w-[20rem]
       h-[40rem]
       max-h-[40rem]
@@ -94,35 +94,19 @@ function ColumnContainer(props: Props) {
         {...listeners}
         onClick={() => setEditMode(true)}
         className="
-          bg-slate-600
+          bg-primary/60
           rounded-t-lg
           h-[3rem]
           cursor-grab
           p-3
           text-md
           font-bold
-          border-3
-          border-slate-100
           flex
           items-center
           justify-between
           "
       >
         <div className="flex gap-2">
-          <div
-            className="
-              flex
-              justify-center
-              items-center
-              bg-slate-500
-              px-3
-              py-2
-              text-sm
-              rounded-full
-              "
-          >
-            0
-          </div>
           {!editMode && column.title}
           {editMode && (
             <Input
@@ -143,12 +127,9 @@ function ColumnContainer(props: Props) {
           onClick={() => {
             deleteColumn(column.id);
           }}
-          variant="secondary"
           className="
               px-1
               py-1
-              bg-slate-600
-              hover:bg-slate-500
               "
         >
           <TrashIcon />
@@ -178,15 +159,7 @@ function ColumnContainer(props: Props) {
         </SortableContext>
       </div>
       <Button
-        className="
-          flex 
-          gap-2
-          hover:bg-slate-300
-          active:bg-slate-500
-          ring-ring
-          active:ring-2
-          "
-        variant="ghost"
+        variant="default"
         onClick={() => {
           createTask(column.id);
         }}
