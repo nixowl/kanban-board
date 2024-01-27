@@ -17,6 +17,7 @@ body,
 /* Track */
 ::-webkit-scrollbar-track {
   @apply bg-slate-900
+
 }/* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -24,7 +25,7 @@ body,
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  @apply bg-violet-200
 }
 
 /* Handle */
@@ -39,13 +40,14 @@ body,
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  @apply bg-secondary rounded-xl
+  @apply bg-primary rounded-xl
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
 
 @layer base {
   :root {
