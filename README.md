@@ -1,6 +1,6 @@
 # Kanban Project Tracker
 
-A kanban style project management tool built with React and TypeScript. This tool allows you to drag and drop tasks, customize tags, and define custom task states.
+A kanban style project management tool built with React and TypeScript. This tool allows you to drag and drop tasks and columns, customize tags, and define custom task states.
 
 ## Project Purpose
 
@@ -12,7 +12,13 @@ Practice React, TS and teamwork by collaborating to create a kanban style projec
 - [ ] Customizable tags
 - [x] Custom task states
 
-## Issues
+## Issues and to-do
 
-- [ ] Tasks can not be dropped in empty columns
-- [ ] Grabbing top of column sometimes grabs task
+- [x] Tasks can not be dropped in empty columns
+- [x] Grabbing top of column sometimes grabs task
+- [x] Holding a task over a column resizes the column to the size of a task
+- [ ] Add tags
+- [ ] Input for custom tags
+- [ ] Split task content into title, description and tags
+- [ ] Modal to edit task info instead of text area directly inside task
+- [ ] Dark/light mode toggle
