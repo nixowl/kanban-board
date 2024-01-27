@@ -27,7 +27,11 @@ function KanbanBoard() {
   const columnsId = useMemo(() => columns.map((col) => col.id), [columns]);
   const [activeColumn, setActiveColumn] = useState<Column | null>(null);
   const [activeTask, setActiveTask] = useState<Task | null>(null);
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[]>([
+    {id: 1, columnId: 1, content: "Do stuff"},
+    {id: 2, columnId: 4, content: "Do things"},
+    {id: 3, columnId: 1, content: "Do more stuff"},
+  ]);
 
   const generateId = () => {
     return Math.floor(Math.random() * 10001);
@@ -146,6 +150,7 @@ function KanbanBoard() {
       content: `Task ${tasks.length + 1}`,
     };
     setTasks([...tasks, newTask]);
+    console.log(tasks)
   }
 
   function deleteTask(id: Id) {
